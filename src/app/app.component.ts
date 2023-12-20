@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Item } from './interfaces/iItem';
+import { ListaDeCompraService } from './service/lista-de-compra.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app-lista-de-compras';
+  listaDeCompra! : Array<Item>
 
-  constructor() { }
+  constructor(private listaService:
+  ListaDeCompraService) { }
 }
