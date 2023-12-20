@@ -6,7 +6,8 @@
       <h4 class="title-list">Lista de Compras</h4>
       <!--Tem o array, toda vez que percorrer este array, estou passando a propriedade para dentro desta variavel item -->
       <div *ngFor="let item of listaDeCompra">
-      <app-item></app-item>
+        <!-- Foi feito um property binding, uma propriedade do app-item, para receber uma informação do app component, recebendo informação da variavel item do ngFor  -->
+      <app-item [item]="item" ></app-item>
       </div>
     </div>
   </div>

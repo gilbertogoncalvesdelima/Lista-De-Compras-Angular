@@ -2,10 +2,14 @@
   class="checkbox"
   type="checkbox"
   name="comprado"
-  id="comprado">
-<p class="description">Nome do item</p>
-<div class="d-contents">
+  id="comprado"
+  [checked]="item.comprado"
+  >
+  <!-- Se a minha propriedade item.comprado, for verdadeira ele ira marcar o input como comprado, caso não, não ficara marcado a nossa caixa do checkbox-->
+<p class="description">{{item.nome}}</p>
+<!-- item editar e excluir somente se este item não tiver marcado como comprado  -->
+<div class="d-contents" *ngIf="!item.comprado">
   <fa-icon class="delete-icon" [icon]="faTrash" ></fa-icon>
   <fa-icon class="edit-icon" [icon]="faPen" ></fa-icon>
 </div>
-<small class="date">00/10/2000</small>
+<small class="date">{{ item.data }}</small>
