@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Item } from './interfaces/iItem';
 import { ListaDeCompraService } from './service/lista-de-compra.service';
 
@@ -7,10 +7,14 @@ import { ListaDeCompraService } from './service/lista-de-compra.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app-lista-de-compras';
+export class AppComponent implements OnInit {
+  // Injetando serviço no app component
   listaDeCompra! : Array<Item>
 
   constructor(private listaService:
   ListaDeCompraService) { }
+  ngOnInit(): void {
+    this.listaDeCompra = this.listaService.getListaDeCompra();
+    console.log(this.listaDeCompra);
+  }
 }
