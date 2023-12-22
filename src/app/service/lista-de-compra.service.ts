@@ -30,7 +30,7 @@ export class ListaDeCompraService {
   adicionarItemNaLista(nomeDoItem: string){
     const item = this.criarItem(nomeDoItem)
     this.listaDeCompra.push(item);
-    this.atualizarLocalStorage();
+    // this.atualizarLocalStorage();
   }
   editarItemDaLista(itemAntigo: Item, nomeEditadoDoItem: string){
     const itemEditado : Item = {
@@ -41,11 +41,13 @@ export class ListaDeCompraService {
     }
     const id = itemAntigo.id;
     // Aqui itemos percorrer o array, pesquisar o item para aquela posição, iremos remover um item de acordo com aquela posição e substituir ele pelo o item editar
-    this.listaDeCompra.splice(Number(id)-1, 1, itemEditado);
-    this.atualizarLocalStorage();
+    this.listaDeCompra.splice(Number(id)-1, 1,
+    itemEditado);
+    // this.atualizarLocalStorage();
   }
   atualizarLocalStorage(){
     // Toda vez que eu chamar este metodo, ele ira jogar para o localStorage o array de lista de compra
-    localStorage.setItem('itens', JSON.stringify(this.listaDeCompra));
+    localStorage.setItem('itens', JSON.stringify(this.
+    listaDeCompra));
   }
 }
