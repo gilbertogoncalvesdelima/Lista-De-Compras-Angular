@@ -4,11 +4,17 @@
   <div class="container">
     <div class="lista">
       <h4 class="title-list">Lista de Compras</h4>
-      <!--Tem o array, toda vez que percorrer este array, estou passando a propriedade para dentro desta variavel item -->
-      <div *ngFor="let item of listaDeCompra">
-        <!-- Foi feito um property binding, uma propriedade do app-item, para receber uma informação do app component, recebendo informação da variavel item do ngFor  -->
-      <app-item [item]="item" (emitindoItemParaEditar)="editarItem($event)" ></app-item>
+      <div *ngIf="listaDeCompra.length !== 0; else naoTemItem">
+
+        <!--Tem o array, toda vez que percorrer este array, estou passando a propriedade para dentro desta variavel item -->
+        <div *ngFor="let item of listaDeCompra">
+          <!-- Foi feito um property binding, uma propriedade do app-item, para receber uma informação do app component, recebendo informação da variavel item do ngFor  -->
+          <app-item [item]="item" (emitindoItemParaEditar)="editarItem($event)" ></app-item>
+        </div>
       </div>
+      <ng-template #naoTemItem>
+        <small>Não tem item na lista.</small>
+      </ng-template>
     </div>
   </div>
 </section>
