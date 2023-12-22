@@ -26,6 +26,9 @@ export class AppComponent implements OnInit, DoCheck {
     const index = this.listaDeCompra.findIndex((item)=>item.id === id);
     this.listaDeCompra.splice(index, 1);
   }
+  limparLista(){
+    this.listaDeCompra = [];
+  }
   // ngDoCheck, ira verificar qualquer alteração que está acontecendo dentro do componente
   ngDoCheck() {
     console.log('DoCheck foi chamado')
