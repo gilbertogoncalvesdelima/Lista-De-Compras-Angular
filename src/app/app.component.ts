@@ -1,6 +1,6 @@
+import { ListaDeCompraService } from 'src/app/service/lista-de-compra.service';
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Item } from './interfaces/iItem';
-import { ListaDeCompraService } from './service/lista-de-compra.service';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +21,10 @@ export class AppComponent implements OnInit, DoCheck {
   editarItem(item: Item){
     // console.log(item);
     this.itemParaSerEditado = item;
+  }
+  deletarItem(id: number){
+    const index = this.listaDeCompra.findIndex((item)=>item.id === id);
+    this.listaDeCompra.splice(index, 1);
   }
   // ngDoCheck, ira verificar qualquer alteração que está acontecendo dentro do componente
   ngDoCheck() {

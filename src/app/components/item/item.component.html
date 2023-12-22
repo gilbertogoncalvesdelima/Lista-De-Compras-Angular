@@ -9,7 +9,7 @@
 <p class="description">{{item.nome}}</p>
 <!-- item editar e excluir somente se este item não tiver marcado como comprado  -->
 <div class="d-contents" *ngIf="!item.comprado">
-  <fa-icon class="delete-icon" [icon]="faTrash" ></fa-icon>
+  <fa-icon class="delete-icon" (click)="deletarItem()" [icon]="faTrash" ></fa-icon>
   <fa-icon class="edit-icon" (click)="editarItem()" [icon]="faPen" ></fa-icon>
 </div>
 <small class="date">{{ item.data }}</small>
