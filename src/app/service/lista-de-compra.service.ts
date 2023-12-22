@@ -6,10 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class ListaDeCompraService {
 
-  private listaDeCompra: Item[] = [];
-
+  private listaDeCompra: Item[];
   constructor() {
-    this.listaDeCompra = JSON.parse(localStorage.getItem('items')|| '[]');
+    this.listaDeCompra = JSON.parse(localStorage.getItem('itens') || '[]');
    // console.log('Instanciando dependências necessárias para o serviço.');
 
   }
