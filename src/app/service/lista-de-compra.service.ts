@@ -48,4 +48,15 @@ export class ListaDeCompraService {
     const item = this.criarItem(nomeDoItem)
     this.listaDeCompra.push(item);
   }
+  editarItemDaLista(itemAntigo: Item, nomeEditadoDoItem: string){
+    const itemEditado : Item = {
+      id: itemAntigo.id,
+      nome: nomeEditadoDoItem,
+      data: itemAntigo.data,
+      comprado: itemAntigo.comprado
+    }
+    const id = itemAntigo.id;
+    // Aqui itemos percorrer o array, pesquisar o item para aquela posição, iremos remover um item de acordo com aquela posição e substituir ele pelo o item editar
+    this.listaDeCompra.splice(Number(id)-1, 1, itemEditado);
+  }
 }
